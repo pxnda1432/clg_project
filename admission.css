@@ -1,0 +1,183 @@
+/* ===============================
+   GLOBAL STYLES
+================================ */
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #eef2f7;
+}
+
+/* ===============================
+   HEADER
+================================ */
+.top-header {
+    background: #1f3d4d;
+    padding: 20px 0;
+    text-align: center;
+    color: white;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.header-logo {
+    height: 80px;
+    width: auto;
+}
+
+.top-header h1 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.top-header p {
+    margin-top: 6px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* ===============================
+   PAGE LAYOUT
+================================ */
+.page-wrapper {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 15px;
+}
+
+/* ===============================
+   FORM CONTAINER + SINGLE WATERMARK
+================================ */
+.form-container {
+    position: relative;
+    background: #ffffff;
+    padding: 45px 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+/* SINGLE LARGE CENTER WATERMARK */
+.form-container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("/static/college_logo.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80%;     /* covers most of the form */
+    opacity: 0.06;            /* watermark strength */
+    pointer-events: none;     /* form stays usable */
+}
+
+/* ===============================
+   FORM SECTIONS
+================================ */
+.section {
+    position: relative;
+    margin-bottom: 45px;
+}
+
+.section h2 {
+    border-left: 6px solid #1f3d4d;
+    padding-left: 12px;
+    color: #1f3d4d;
+    margin-bottom: 28px;
+    font-size: 20px;
+}
+
+/* ===============================
+   LABELS & INPUTS
+================================ */
+label {
+    display: block;
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    font-size: 14px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.96);
+}
+
+textarea {
+    height: 90px;
+    resize: none;
+}
+
+/* File inputs */
+input[type="file"] {
+    display: block;
+    margin-top: 10px;
+}
+
+/* ===============================
+   CHECKBOX
+================================ */
+.checkbox {
+    margin: 18px 0;
+    font-size: 14px;
+}
+
+.checkbox input {
+    margin-right: 8px;
+}
+
+/* ===============================
+   SUBMIT BUTTON
+================================ */
+.submit-btn {
+    width: 100%;
+    margin-top: 40px;
+    padding: 20px;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, #1f3d4d, #2f6b89);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    opacity: 0.92;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+    }
+
+    .header-logo {
+        height: 65px;
+    }
+
+    .form-container {
+        padding: 30px 20px;
+    }
+
+    .form-container::before {
+        background-size: 95%;
+        opacity: 0.05;
+    }
+}

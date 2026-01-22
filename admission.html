@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Admission Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admission.css') }}">
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="top-header">
+    <div class="header-content">
+        <img src="{{ url_for('static', filename='college_logo.png') }}" class="header-logo">
+        <div>
+            <h1>SRI VENKATESHWARA POLYTECHNIC</h1>
+            <p>STUDENT ADMISSION FORM</p>
+        </div>
+    </div>
+</div>
+
+<div class="page-wrapper">
+
+<div class="form-container">
+<form method="POST" enctype="multipart/form-data">
+
+<!-- ================= ADMISSION INFO ================= -->
+<div class="section">
+<h2>Admission Information</h2>
+
+<label>Generated Admission ID</label>
+<input type="text" value="{{ admission_id }}" readonly>
+
+<label>Admission Year *</label>
+<select name="admission_year" required>
+  {% for y in range(2000, 2031) %}
+    <option value="{{ y }}">{{ y }}</option>
+  {% endfor %}
+</select>
+
+<label>Branch *</label>
+<select name="branch" required>
+<option value="">Select</option>
+<option>CS</option>
+<option>EC</option>
+<option>ME</option>
+<option>AT</option>
+</select>
+</div>
+
+<!-- ================= STUDENT DETAILS ================= -->
+<div class="section">
+<h2>Student Details</h2>
+
+<label>First Name *</label>
+<input type="text" name="first_name" required>
+
+<label>Middle Name</label>
+<input type="text" name="middle_name">
+
+<label>Last Name</label>
+<input type="text" name="last_name">
+
+<label>Date of Birth *</label>
+<input type="date" name="dob" required>
+
+<label>Student Photo (JPG) *</label>
+<input type="file" name="student_photo" accept=".jpg,.jpeg,.png" required>
+</div>
+
+<!-- ================= PARENT DETAILS ================= -->
+<div class="section">
+<h2>Parent / Contact Details</h2>
+
+<label>Father Name *</label>
+<input type="text" name="father_name" required>
+
+<label>Mother Name *</label>
+<input type="text" name="mother_name" required>
+
+<label>PARENT PHONE NUMBER *</label>
+<input type="text" name="parent_phone1" maxlength="10" required>
+
+<label>PARENT PHONE NUMBER (OPTIONAL)</label>
+<input type="text" name="parent_phone2" maxlength="10">
+
+<label>STUDENT PHONE NUMBER *</label>
+<input type="text" name="student_phone" maxlength="10" required>
+
+<label>Student Email ID</label>
+<input type="email" name="student_email">
+</div>
+
+<!-- ================= ADDRESS ================= -->
+<div class="section">
+<h2>Address Details</h2>
+
+<label>Residential Address *</label>
+<textarea name="residential_address" id="res_address" required></textarea>
+
+<div class="checkbox">
+<input type="checkbox" onclick="copyAddress(this)">
+<label>Permanent address same as residential</label>
+</div>
+
+<label>Permanent Address *</label>
+<textarea name="permanent_address" id="perm_address" required></textarea>
+</div>
+
+<!-- ================= AADHAAR & CATEGORY ================= -->
+<div class="section">
+<h2>Identity & Category</h2>
+
+<label>Aadhaar Number</label>
+<input type="text" name="aadhar_number" maxlength="12">
+
+<label>Aadhaar File (PDF/JPG)</label>
+<input type="file" name="aadhar_file">
+
+<label>Category *</label>
+<select name="category" required>
+<option value="">Select</option>
+<option>CATEGORY-1</option>
+<option>SC</option>
+<option>ST</option>
+<option>2A</option>
+<option>2B</option>
+<option>3A</option>
+<option>3B</option>
+<option>OBC</option>
+</select>
+
+<label>Sub Caste</label>
+<input type="text" name="sub_caste">
+</div>
+
+<!-- ================= INCOME ================= -->
+<div class="section">
+<h2>Income Details</h2>
+
+<label>Annual Income</label>
+<input type="number" name="income_amount">
+
+<label>Income Certificate (If Available)</label>
+<input type="file" name="income_certificate">
+</div>
+
+<!-- ================= CERTIFICATES ================= -->
+<div class="section">
+<h2>Educational Certificates</h2>
+
+<label>Study Certificate *</label>
+<input type="file" name="study_certificate" required>
+
+<label>Transfer Certificate *</label>
+<input type="file" name="transfer_certificate" required>
+</div>
+
+<!-- ================= PREVIOUS QUALIFICATION ================= -->
+<div class="section">
+<h2>Previous Qualification</h2>
+
+<label>Qualification *</label>
+<select name="previous_qualification" required>
+<option value="">Select</option>
+<option>SSLC</option>
+<option>PUC</option>
+<option>ITI</option>
+</select>
+
+<label>Overall Percentage *</label>
+<input type="number" step="0.01" name="previous_percentage" required>
+</div>
+
+<!-- ================= ADMISSION QUOTA ================= -->
+<div class="section">
+<h2>Admission Quota</h2>
+
+<select name="admission_quota">
+<option selected>GENERAL</option>
+<option>SNQ</option>
+<option>SPORTS</option>
+<option>NCC</option>
+</select>
+</div>
+
+<button type="submit" class="submit-btn">SUBMIT APPLICATION</button>
+
+</form>
+</div>
+
+<div class="logo-watermark"></div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/admission.js') }}"></script>
+
+</body>
+</html>
